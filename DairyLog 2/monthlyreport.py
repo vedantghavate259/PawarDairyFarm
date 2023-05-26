@@ -21,6 +21,7 @@ for folder in main:
             dfflag=1                
             continue
         dfcheck[[scsvname]]=''
+        #checking unique combination of name society building flat category
         merged =dfcheck[['Name','Society','Building','Flat','Category']].astype(str).merge(dfcurrfile.astype(str),on=['Name','Society','Building','Flat','Category'],indicator=True, how='outer')
         newentry=merged.loc[merged['_merge'] == 'right_only']
         sameentry=merged.loc[merged['_merge'] != 'right_only']
